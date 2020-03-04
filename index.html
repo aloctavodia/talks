@@ -13245,6 +13245,15 @@ Tucumán, marzo 2020
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Bayesian-Statistics">Bayesian Statistics<a class="anchor-link" href="#Bayesian-Statistics">&#182;</a></h2><p><img src="img/IMG_20200212_065526.jpg" width="410">
+<img src="img/owl.png" width="900"></p>
+
+</div>
+</div>
+</div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Statistics-is-about-computing-p-values-&lt;-0.05-and-following-diagrams:">Statistics is about computing p-values &lt; 0.05 and following diagrams:<a class="anchor-link" href="#Statistics-is-about-computing-p-values-&lt;-0.05-and-following-diagrams:">&#182;</a></h2><p><img src="img/flowchart.png" width="500"></p>
 <p>Well, not really! But this is generally what we learn at Schools/Universities and daily scientific practice.</p>
 
@@ -13272,6 +13281,20 @@ Tucumán, marzo 2020
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Bayesian-Data-Analysis">Bayesian Data Analysis<a class="anchor-link" href="#Bayesian-Data-Analysis">&#182;</a></h2><p><br>
+<br></p>
+<blockquote><p>We could call Bayesian data analysis “statistics using conditional probability”, but that
+wouldn’t put the butts in the seats. Andrew Gelman.</p>
+</blockquote>
+<p><br>
+<br></p>
+
+</div>
+</div>
+</div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Bayesian-statistics*">Bayesian statistics*<a class="anchor-link" href="#Bayesian-statistics*">&#182;</a></h2><p><center>
 <img src="img/probabilistic_modelling.png" width="600"></p>
 <p>* AKA Probabilistic modeling, Bayesian modeling, probabilistic machine learning ...</p>
@@ -13282,12 +13305,36 @@ Tucumán, marzo 2020
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Why-I-like-the--&quot;statistics-is-a-form-of-modeling&quot;-motto?">Why I like the  "statistics is a form of modeling" motto?<a class="anchor-link" href="#Why-I-like-the--&quot;statistics-is-a-form-of-modeling&quot;-motto?">&#182;</a></h2><p><br></p>
+<h2 id="The-Posterior">The Posterior<a class="anchor-link" href="#The-Posterior">&#182;</a></h2><p><br></p>
 <ul>
-<li>Models are tools to help us undestand stuff, not mathemagical decision making tools (yeah I complaining about p-values)</li>
+<li>A posterior it is the central quantity of Bayesian stastics</li>
 </ul>
 <ul>
-<li>Modeling is not about Truth is about suitability <em>Scientific fictions</em>¹ can be useful</li>
+<li>It is the logical consequence of the model and data (platonic world)</li>
+</ul>
+<ul>
+<li>By integrating over the posterior we get quantities of interest from it:<ul>
+<li>Mean, credible intervals, quantiles</li>
+<li>Predictions</li>
+<li>Get rid of nuisance parameters</li>
+</ul>
+</li>
+</ul>
+<p><br>
+<br></p>
+
+</div>
+</div>
+</div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Why-I-like-the--&quot;statistics-is-a-form-of-modeling&quot;-motto?">Why I like the  "statistics is a form of modeling" motto?<a class="anchor-link" href="#Why-I-like-the--&quot;statistics-is-a-form-of-modeling&quot;-motto?">&#182;</a></h2><p><br></p>
+<ul>
+<li>Models are tools to help us undestand stuff, not mathemagical decision making tools</li>
+</ul>
+<ul>
+<li>Modeling is more about suitability than about Truth --&gt; <em>Scientific fictions</em>¹ can be useful</li>
 </ul>
 <ul>
 <li>It is OK to play with models, change them, adapt them reuse them, make them simpler or complex, etc</li>
@@ -13319,11 +13366,17 @@ Tucumán, marzo 2020
 <ul>
 <li>is useful and flexible approach (real world)<ul>
 <li>uncertainty propagation</li>
+<li>data efficiency<ul>
 <li>a principled way to incorporate domain-knowledge</li>
+<li>from integration instead of optimization</li>
+</ul>
+</li>
 <li>a unified and <em>simple</em> conceptual framework $\implies$ practical flexibility to create custom models</li>
 </ul>
 </li>
 </ul>
+<p><br></p>
+<p><a href="https://arxiv.org/abs/2002.08791">Bayesian Deep Learning and a Probabilistic Perspective of Generalization</a></p>
 
 </div>
 </div>
@@ -13391,24 +13444,36 @@ $$\mu = \sum_j^m g_j(X)$$$$y \sim \mathop{\phi}(\mu, \theta)$$<p><br></p>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="The-Posterior-and-Marginalization">The Posterior and Marginalization<a class="anchor-link" href="#The-Posterior-and-Marginalization">&#182;</a></h2><p><br></p>
+<h2 id="Either-this-is-madness-or-it-is-Hell&#185;">Either this is madness or it is Hell&#185;<a class="anchor-link" href="#Either-this-is-madness-or-it-is-Hell&#185;">&#182;</a></h2><p><br></p>
+<p><center>
+<img src="img/dimensiones.png" width="800"></p>
+<p>¹<a href="http://www.gutenberg.org/ebooks/97">Flatland: A Romance of Many Dimensions</a></p>
+
+</div>
+</div>
+</div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><center>
+<img src="img/distancia_a_la_moda.png" width="800"></p>
+
+</div>
+</div>
+</div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Probabilistic-Programming">Probabilistic Programming<a class="anchor-link" href="#Probabilistic-Programming">&#182;</a></h2><p><br>
+<br></p>
 <ul>
-<li>A posterior it is the central quantity of Bayesian stastics</li>
+<li>A probabilistic programming language is a programming language designed to <strong>describe probabilistic models</strong> and then <strong>perform inference</strong> over those models</li>
 </ul>
 <ul>
-<li>It is the logical consequence of the model and data (platonic world)</li>
-</ul>
-<ul>
-<li>By computing integrals over the posterior we get quantities of interested from it:<ul>
-<li>Mean, credible intervals, quantiles</li>
-<li>Predictions</li>
-<li>Marginalize nuisance parameters</li>
-</ul>
-</li>
+<li>The promise: <strong>clear separation of modeling and inference</strong>. Practitioners should focus on modeling, not <em>computational or mathematical details</em></li>
 </ul>
 <p><br>
 <br></p>
-<p><a href="https://arxiv.org/abs/2002.08791">The Case for Bayesian Deep Learning</a></p>
 
 </div>
 </div>
@@ -13451,23 +13516,6 @@ $$\mu = \sum_j^m g_j(X)$$$$y \sim \mathop{\phi}(\mu, \theta)$$<p><br></p>
 <p><br>
 <br></p>
 <p><a href="https://www.youtube.com/watch?v=KWXMDycs9HQ">Machine Learning and Statistics: Don't Mind the Gap.</a></p>
-
-</div>
-</div>
-</div></section></section><section><section>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Probabilistic-Programming">Probabilistic Programming<a class="anchor-link" href="#Probabilistic-Programming">&#182;</a></h2><p><br>
-<br></p>
-<ul>
-<li>A probabilistic programming language is a programming language designed to <strong>describe probabilistic models</strong> and then <strong>perform inference</strong> over those models</li>
-</ul>
-<ul>
-<li>The promise: <strong>clear separation of modeling and inference</strong>. Practitioners should focus on modeling, not <em>computational or mathematical details</em></li>
-</ul>
-<p><br>
-<br></p>
 
 </div>
 </div>
