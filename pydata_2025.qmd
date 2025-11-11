@@ -128,7 +128,7 @@ azp.plot_dist(dt, var_names=["~p"],
 ## ArviZ-plots
 
 ```{python}
-azp.plot_dist(dt, var_names=["Intercept", "party_id:age"],
+pc = azp.plot_dist(dt, var_names=["Intercept", "party_id:age"],
     kind = "ecdf",
     visuals ={"point_estimate_text": False},
     cols = ["__variable__"],
@@ -137,9 +137,9 @@ azp.plot_dist(dt, var_names=["Intercept", "party_id:age"],
     aes_by_visuals={
         "dist": ["color"],
         "point_estimate": ["color", "y"],
-        "credible_interval": ["y"]
-    },
-).show()
+        "credible_interval": ["y"]})
+pc.add_legend("party_id:age_dim", title="Party")
+pc.show()
 ```
 
 
