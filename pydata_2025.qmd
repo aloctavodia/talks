@@ -1,0 +1,166 @@
+---
+title: "ArviZ 1.0"
+subtitle: "Refactoring for flexibility, extensibility, and power"
+author: "Osvaldo Martin"
+date: "2025-11-11"
+institute: "Aalto University"
+format:
+    revealjs:
+        embed-resources: true
+execute:
+  echo: true
+  eval: true
+  output: true
+---
+
+```{python}
+#| echo: false
+#| warning: false 
+from plotly.io import renderers
+renderers.default = "notebook_connected" 
+import numpy as np
+import arviz_base as azb
+import arviz_plots as azp
+azp.style.use("arviz-variat")
+azb.rcParams["plot.backend"] = "plotly"
+```
+
+## What is ArviZ?
+
+<br>
+
+:::{.callout-note appearance="minimal"}
+**The bass player of Bayesian modelling (with Python)**
+:::
+
+* Plays a key supporting role:
+    - Model evaluation
+    - Model comparison
+    - MCMC diagnostics
+    - Presentation of results
+    - ... 
+
+## The origin story
+
+<br>
+
+- A PyMC's spin-off
+- March 2018 we decide to move out diagnostics and plotting out of PyMC code base
+
+## Why a refactoring?
+
+- We were never really happy with the design, but people needed the tools!
+- A few issues:
+    - dependencies: sometimes NumPy is all you need
+    - messy arguments: flexibility scaled with number of arguments.
+    - hard to reuse code: both for us and for users.
+    - duplicated code: similar functionality implemented twice (matplotlib/bokeh).
+    - ...
+
+
+## Divide and conquer
+
+All ArviZ functionality is available in 3 packages
+
+- **arviz-base**: I/O and datastructure manipulation
+- **arviz-stats**: for statistical functions and diagnostics
+- **arviz-plots**: visual checks
+
+
+:::{.callout-note icon=false .fragment}
+We expect most users to install everything together, so for them ArviZ is still one package.
+:::
+
+
+## ArviZ-base
+
+```{python}
+import arviz_base as azb
+dt = azb.load_arviz_data("anes")
+dt
+```
+
+## ArviZ-stats
+
+```{python}
+import arviz_stats as azs
+
+azs.ess(dt)
+```
+
+
+## ArviZ-stats array-interface
+
+```{python}
+from arviz_stats.base import array_stats
+
+# generate mock MCMC-like data
+rng = np.random.default_rng()
+samples = rng.normal(size=(4, 1000, 3))
+
+array_stats.ess(samples, chain_axis=0, draw_axis=1)
+```
+
+
+
+## ArviZ-plots
+
+<br>
+
+```{python}
+azp.plot_dist(dt, var_names=["~p"]).show()
+```
+
+
+## ArviZ-plots
+
+<br>
+
+```{python}
+azp.plot_dist(dt, var_names=["~p"],
+              visuals={"dist": {"color": "C5", "linestyle": "C2"},
+                       "credible_interval": False,
+                       "point_estimate": False,
+                       "point_estimate_text": False,
+                      }).show()
+```
+
+## ArviZ-plots
+
+```{python}
+azp.plot_dist(dt, var_names=["Intercept", "party_id:age"],
+    kind = "ecdf",
+    visuals ={"point_estimate_text": False},
+    cols = ["__variable__"],
+    aes = {"color": ["party_id:age_dim"], "y": ["party_id:age_dim"]},
+    y = np.linspace(0, 0.1, 4),
+    aes_by_visuals={
+        "dist": ["color"],
+        "point_estimate": ["color", "y"],
+        "credible_interval": ["y"]
+    },
+).show()
+```
+
+
+## Where are we now?
+
+- not yet at 1.0, but really close
+- if you are already using ArviZ you can try
+
+```{python}
+#| eval: false
+pip install -U arviz
+pip install arviz-plots["backend"] 
+# backend ∈ {"matplotlib", "plotly", "bokeh"} 
+```
+
+<br>
+
+and then:
+
+```{python}
+#| eval: false
+import arviz as az  # old arviz
+import arviz.preview as azp  # new arviz
+```
